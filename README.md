@@ -41,15 +41,15 @@ The EasyFarming application is divided into two main parts:
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org/) (version 17.3.7)
-- [Angular CLI](https://angular.io/cli) (version 18.13.0)
+- [Node.js](https://nodejs.org/) ( version 18.13.0 )
+- [Angular CLI](https://angular.io/cli) ( version 17.3.7 )
 
 ### Backend (Node.js)
 
 1. Clone the repository:
 
     ```sh
-    git clone https://github.com/your-username/easyfarming.git
+    git clone https://github.com/saramohammedken/easyFarming.git
     ```
 
 2. Navigate to the backend directory:
@@ -58,22 +58,10 @@ The EasyFarming application is divided into two main parts:
     cd easyfarming/backend
     ```
 
-3. Initialize the Node.js project:
+3. Install the package libraries :
 
     ```sh
-    npm init
-    ```
-
-4. Install the backend dependencies:
-
-    ```sh
-    npm install express uuid http-status-codes cors
-    ```
-
-5. Install testing dependencies:
-
-    ```sh
-    npm install mocha supertest --save-dev
+    npm install
     ```
 
 ### Frontend (Angular)
@@ -88,18 +76,6 @@ The EasyFarming application is divided into two main parts:
 
     ```sh
     npm install
-    ```
-
-3. Install ng-bootstrap:
-
-    ```sh
-    ng add @ng-bootstrap/ng-bootstrap
-    ```
-
-4. Install additional dependencies:
-
-    ```sh
-    npm install @ngneat/until-destroy
     ```
 
 ## Usage
