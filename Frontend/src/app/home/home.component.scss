@@ -1,0 +1,34 @@
+.background{
+    min-height: 100vh;
+    width: 100vw;
+    background: url('/../assets/images/background.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: fixed;
+    z-index: -1;
+}
+.mask{
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    right: 0;
+    background: #14181936;
+}
+.content{
+    padding: 7rem 7rem;
+}
+h1.title{
+    font-family: cursive;
+     font-weight:700;
+}
+
+.tabHeader.active{
+    color: #fff;
+    background-color: #eb511e;
+}
+.tabHeader{
+    color: #eb511e;
+}

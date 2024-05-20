@@ -1,0 +1,26 @@
+<div class=" background"></div>
+<div class="mask"></div>
+<div class="content">
+    <h1 class="text-center fst-italic text-decoration-underline title">Easy Farming</h1>
+    
+    <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs border-bottom-0">
+        <li [ngbNavItem]="1">
+            <button ngbNavLink class="rounded-2 tabHeader border-0">Sensor Readings</button>
+            <ng-template ngbNavContent>
+                <div class="bg-white p-4 rounded-1">
+                    <app-sensor-reading></app-sensor-reading>
+                </div>
+            </ng-template>
+        </li>
+        <li [ngbNavItem]="2">
+            <button ngbNavLink class="rounded-2 tabHeader border-0">Sensor Types</button>
+            <ng-template ngbNavContent>
+                <div class="bg-white p-4 rounded-1">
+                    <app-sensor-type></app-sensor-type>
+                </div>
+            </ng-template>
+        </li>
+    </ul>
+    
+    <div [ngbNavOutlet]="nav" class="mt-2"></div>
+</div>
