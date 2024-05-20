@@ -6,4 +6,5 @@
 # Node artifact files
 Frontend/node_modules/
 Frontend/coverage/
+Frontend/.angular/
 Backend/node_modules/

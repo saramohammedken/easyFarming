@@ -69,7 +69,7 @@ The EasyFarming application is divided into two main parts:
 1. Navigate to the frontend directory:
 
     ```sh
-    cd ../easyfarming/frontend
+    cd easyfarming/frontend
     ```
 
 2. Install the frontend dependencies:
