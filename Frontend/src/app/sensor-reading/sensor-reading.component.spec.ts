@@ -90,16 +90,6 @@ describe('SensorReadingComponent', () => {
     tick();
     dd.and.returnValue(throwError(() => new Error()));
     component.submit();
-    
-    // sensorReadingService.add(component.form.getRawValue()).pipe().subscribe({
-    //   next: (res) => {
-    //   },
-    //   error: (err) => {
-    //     expect(component.alertExists).toBe(true);
-    //     expect(component.alertType).toBe('danger');
-    //   }
-    // })
-
     fixture.detectChanges();
   }));
 

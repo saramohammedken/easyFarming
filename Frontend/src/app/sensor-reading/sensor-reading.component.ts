@@ -110,7 +110,6 @@ export class SensorReadingComponent {
         this.alertExists = true;
         this.alertType = 'success';
         this.alertMessage = 'Deleted.';
-        //this.getSensorReadings();
       },
       error: (err) => {
         this.alertExists = true;

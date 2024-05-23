@@ -60,7 +60,6 @@ export class SensorTypeComponent {
           this.alertExists = true;
           this.alertType = 'success';
           this.alertMessage = 'Added.';
-          //this.sensorTypesList.push(res);
           this.form.reset();
         },
         error: (err) => {

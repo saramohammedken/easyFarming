@@ -18,7 +18,7 @@ describe('SensorTypeService', () => {
   });
 
   afterEach(() => {
-    httpMock.verify(); // Ensure that there are no outstanding requests.
+    httpMock.verify();  
   });
 
   it('should be created', () => {

@@ -29,7 +29,6 @@ const findAll = async () => Object.values(loadSensorTypes());
 
 const findOne = async (id) => sensorTypes[id];
 
-//
 const create = async (sensorTypeData ) => {
 
   let id = random()
