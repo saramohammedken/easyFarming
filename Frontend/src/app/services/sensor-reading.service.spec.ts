@@ -1,10 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { SensorReadingService } from './sensor-reading.service';
+import { environment } from '../../environments/environment';
 
 describe('SensorReadingService', () => {
   let service: SensorReadingService;
   let httpMock: HttpTestingController;
+  let API_URL: string = environment.API_ENDPOINT;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -34,7 +36,7 @@ describe('SensorReadingService', () => {
       expect(readings).toEqual(dummyReadings);
     });
 
-    const req = httpMock.expectOne('http://localhost:3000/sensors/data');
+    const req = httpMock.expectOne(API_URL+'/sensors/data');
     expect(req.request.method).toBe('GET');
     req.flush(dummyReadings);
   });
@@ -46,7 +48,7 @@ describe('SensorReadingService', () => {
       expect(response).toEqual(dummyData);
     });
 
-    const req = httpMock.expectOne('http://localhost:3000/sensors/data');
+    const req = httpMock.expectOne(API_URL+'/sensors/data');
     expect(req.request.method).toBe('POST');
     expect(req.request.body).toEqual(dummyData);
     req.flush(dummyData);
@@ -59,7 +61,7 @@ describe('SensorReadingService', () => {
       expect(response).toEqual(dummyData);
     });
 
-    const req = httpMock.expectOne('http://localhost:3000/sensors/' + dummyData.id);
+    const req = httpMock.expectOne(API_URL+'/sensors/' + dummyData.id);
     expect(req.request.method).toBe('PUT');
     expect(req.request.body).toEqual(dummyData);
     req.flush(dummyData);
@@ -73,7 +75,7 @@ describe('SensorReadingService', () => {
       expect(response).toEqual(dummyResponse);
     });
 
-    const req = httpMock.expectOne('http://localhost:3000/sensors/' + id);
+    const req = httpMock.expectOne(API_URL+'/sensors/' + id);
     expect(req.request.method).toBe('DELETE');
     req.flush(dummyResponse);
   });

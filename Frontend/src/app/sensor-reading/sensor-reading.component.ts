@@ -24,6 +24,7 @@ export class SensorReadingComponent {
   alertExists: boolean = false;
   alertType: string = '';
   alertMessage: string = '';
+  private intervalId: any;
 
   form: FormGroup = this.fb.group({
     id: [''],
@@ -36,7 +37,8 @@ export class SensorReadingComponent {
 
 
   ngOnInit() {
-    this.getSensorReadings();
+    this.getSensorReadings(); 
+    this.intervalId = setInterval(() => this.getSensorReadings() , 3000);  
   }
   
   getSensorReadings() {
@@ -68,7 +70,6 @@ export class SensorReadingComponent {
           this.alertExists = true;
           this.alertType = 'success';
           this.alertMessage = 'Added.';
-          this.getSensorReadings();
           this.form.reset();
         },
         error: (err) => {
@@ -84,7 +85,6 @@ export class SensorReadingComponent {
           this.alertExists = true;
           this.alertType = 'success';
           this.alertMessage = 'Saved.';
-          this.getSensorReadings();
           this.form.reset();
         },
         error: (err) => {
@@ -110,7 +110,7 @@ export class SensorReadingComponent {
         this.alertExists = true;
         this.alertType = 'success';
         this.alertMessage = 'Deleted.';
-        this.getSensorReadings();
+        //this.getSensorReadings();
       },
       error: (err) => {
         this.alertExists = true;
@@ -119,5 +119,12 @@ export class SensorReadingComponent {
       }
     });
   }
+
+  ngOnDestroy() {
+    if (this.intervalId) {
+      clearInterval(this.intervalId);
+    }
+  }
+
 }
 

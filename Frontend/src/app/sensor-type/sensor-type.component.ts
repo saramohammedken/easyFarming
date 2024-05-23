@@ -19,6 +19,7 @@ export class SensorTypeComponent {
   alertExists: boolean = false;
   alertType: string = '';
   alertMessage: string = '';
+  private intervalId: any;
 
   form: FormGroup = this.fb.group({
     id: [''],
@@ -32,6 +33,7 @@ export class SensorTypeComponent {
 
   ngOnInit() {
     this.getSensorTypes();
+    this.intervalId = setInterval(() => this.getSensorTypes(), 3000);  
   }
 
   getSensorTypes() {
@@ -58,8 +60,7 @@ export class SensorTypeComponent {
           this.alertExists = true;
           this.alertType = 'success';
           this.alertMessage = 'Added.';
-          //this.getSensorTypes();
-          this.sensorTypesList.push(res);
+          //this.sensorTypesList.push(res);
           this.form.reset();
         },
         error: (err) => {
@@ -75,10 +76,6 @@ export class SensorTypeComponent {
           this.alertExists = true;
           this.alertType = 'success';
           this.alertMessage = 'Saved.';
-          // let updatedRow = this.sensorTypesList.find((val: any ) => val.id == data.id) || {name: '', description:''};
-          // updatedRow.name = res.name;
-          // updatedRow.description = res.description;
-          this.getSensorTypes();
           this.form.reset();
         },
         error: (err) => {
@@ -104,7 +101,6 @@ export class SensorTypeComponent {
         this.alertExists = true;
         this.alertType = 'success';
         this.alertMessage = 'Deleted.';
-        this.getSensorTypes();
       },
       error: (err) => {
         this.alertExists = true;
@@ -112,5 +108,11 @@ export class SensorTypeComponent {
         this.alertMessage = err.error;
       }
     });
+  }
+
+  ngOnDestroy() {
+    if (this.intervalId) {
+      clearInterval(this.intervalId);
+    }
   }
 }

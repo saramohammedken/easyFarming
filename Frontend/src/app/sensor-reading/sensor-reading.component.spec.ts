@@ -85,8 +85,8 @@ describe('SensorReadingComponent', () => {
     dd.and.returnValue(of(api1Data));
     component.submit();
     expect(component.alertExists).toBe(true);
-    expect(component.alertType).toBe('danger');
-    expect(component.alertMessage).toBeUndefined();
+    expect(component.alertType).toBe('success');
+    expect(component.alertMessage).toBe('Added.');
     tick();
     dd.and.returnValue(throwError(() => new Error()));
     component.submit();
@@ -144,8 +144,8 @@ describe('SensorReadingComponent', () => {
     dd.and.returnValue(of(api1Data));
     component.submit();
     expect(component.alertExists).toBe(true);
-    expect(component.alertType).toBe('danger');
-    expect(component.alertMessage).toBeUndefined();
+    expect(component.alertType).toBe('success');
+    expect(component.alertMessage).toBe('Saved.');
     component.form.reset();
     dd.and.returnValue(throwError({error: ''}));
     component.submit();
@@ -183,8 +183,8 @@ describe('SensorReadingComponent', () => {
 
     expect(sensorReadingService.remove).toHaveBeenCalledWith('1');
     expect(component.alertExists).toBeTrue();
-    expect(component.alertType).toBe('danger');
-    expect(component.alertMessage).toBeUndefined();
+    expect(component.alertType).toBe('success');
+    expect(component.alertMessage).toBe('Deleted.');
   });
 
   it('should handle remove error', () => {
